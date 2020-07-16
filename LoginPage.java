@@ -1,7 +1,18 @@
 import org.openqa.selenium.By;
 
-public class LoginPage {
-    public void pressLogin(){
-        ElementHandler.clickElement(By.id("login"));
+public class LoginPage extends BasePage {
+
+    public void login(){
+        enterCredentials();
+        pressLogin();
+    }
+
+    private void enterCredentials(){
+        sendKeysToElement(By.id("userName"), "John");
+        sendKeysToElement(By.id("password"), "123456");
+    }
+
+    private void pressLogin(){
+        clickElement(By.id("login"));
     }
 }
